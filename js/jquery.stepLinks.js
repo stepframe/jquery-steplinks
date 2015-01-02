@@ -4,9 +4,7 @@
 
 	// Open external links and PDFs in new window
     var pluginName = "stepLinks",
-        defaults = {
-            propertyName: "value"
-        };
+        defaults = {};
  
     // plugin constructor
     function Plugin( element, options ) {
