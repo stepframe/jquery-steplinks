@@ -2,6 +2,7 @@ jquery-stepLinks
 ================
 
 When building simple html sites for clients, we found ourselves doing similar tasks with links on nearly every site. This simple jQuery plugin makes it easy on us by doing the following:
+
 1. Opens external links and PDFs in a new window by programmatically adding *target="_blank"*
 2. Sets up Google Analytics event tracking for external links.
 3. Sets up Google Analytics page view tracking for PDFs.
