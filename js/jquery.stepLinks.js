@@ -1,4 +1,4 @@
-/* jQuery StepLinks v1.0 */
+/* jQuery StepLinks v1.1 */
  
 ;(function ( $, window, document, undefined ) {
 
@@ -19,33 +19,34 @@
     }
 
     Plugin.prototype.init = function () {
+        
+        var $el = $(this.element),
+            title,
+            page;
 
-        if (($(this.element).attr('href').indexOf('http') > -1) || ($(this.element).attr('href').indexOf('pdf') > -1)) {
-        	$(this.element).attr('target', '_blank');
+        if ($el.attr('href') && (($el.attr('href').indexOf('http') > -1) || ($el.attr('href').indexOf('pdf') > -1))) {
+        	$el.attr('target', '_blank');
         }
 
         // Setup event tracking for external links and PDFs
-        if($(this.element).attr('href') !== undefined) {
+        if($el.attr('href') !== undefined) {
         	
-        	var title,
-        		page;
-
-        	if($(this.element).attr('href').indexOf('.pdf') > -1) {
+        	if($el.attr('href').indexOf('.pdf') > -1) {
         
-        		title = $(this.element).text();
-        		page = $(this.element)[0].href;
+        		title = $el.text();
+        		page = $el[0].href;
         		page = page.replace(window.location.protocol + '//' + window.location.host, '');
         		
-        		$(this.element).click(function() {
+        		$el.click(function() {
         			trackThis.page(title, page, 'PDF');
         		});
-        	} else if ($(this.element).attr('href').indexOf('http') > -1) {
+        	} else if ($el.attr('href').indexOf('http') > -1) {
         		
-        		title = $(this.element).text();
-        		page = $(this.element)[0].href;
+        		title = $el.text();
+        		page = $el[0].href;
         		page = page.replace(window.location.protocol + '//' + window.location.host, '');
         		
-        		$(this.element).click(function() {
+        		$el.click(function() {
         			trackThis.event('External Link', page, title);
         		});
         	}
