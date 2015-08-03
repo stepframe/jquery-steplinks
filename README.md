@@ -8,7 +8,7 @@ When building simple html sites for clients, we found ourselves doing similar ta
 3. Sets up Google Analytics page view tracking for PDFs.
 
 ### Version
-1.0
+1.2
 
 ### Getting started
 
