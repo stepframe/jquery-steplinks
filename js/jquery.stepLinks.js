@@ -1,4 +1,4 @@
-/* jQuery StepLinks v1.1 */
+/* jQuery StepLinks v1.2 */
  
 ;(function ( $, window, document, undefined ) {
 
@@ -31,7 +31,7 @@
         // Setup event tracking for external links and PDFs
         if($el.attr('href') !== undefined) {
         	
-        	if($el.attr('href').indexOf('.pdf') > -1) {
+        	if($el.attr('href').toLowerCase().indexOf('.pdf') > -1) {
         
         		title = $el.text();
         		page = $el[0].href;
