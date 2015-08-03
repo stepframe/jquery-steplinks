@@ -22,16 +22,22 @@
         
         var $el = $(this.element),
             title,
-            page;
+            page,
+            href;
 
-        if ($el.attr('href') && (($el.attr('href').indexOf('http') > -1) || ($el.attr('href').indexOf('pdf') > -1))) {
-        	$el.attr('target', '_blank');
+        // Check for href and setup target _blank
+        if($el.attr('href')) {
+            href = $el.attr('href').toLowerCase();
+
+            if(href && (href.indexOf('http') > -1 || href.indexOf('pdf') > -1)) {
+                $el.attr('target', '_blank');
+            }
         }
 
         // Setup event tracking for external links and PDFs
-        if($el.attr('href') !== undefined) {
+        if(href) {
         	
-        	if($el.attr('href').toLowerCase().indexOf('.pdf') > -1) {
+        	if(href.indexOf('.pdf') > -1) {
         
         		title = $el.text();
         		page = $el[0].href;
@@ -40,7 +46,7 @@
         		$el.click(function() {
         			trackThis.page(title, page, 'PDF');
         		});
-        	} else if ($el.attr('href').indexOf('http') > -1) {
+        	} else if (href.indexOf('http') > -1) {
         		
         		title = $el.text();
         		page = $el[0].href;
